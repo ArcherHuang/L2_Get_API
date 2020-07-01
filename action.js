@@ -41,6 +41,9 @@ const obj = {
       str += `
       <div class="card">
         <img src="${item.imageUrl[0]}" class="card-img-top">
+        <div class="text-block">
+          <span>特價中</span>
+        </div>
         <div class="card-body">
           <h5 class="card-title">${item.title}</h5>
           <p class="card-text">${item.content}</p>

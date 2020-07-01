@@ -7,3 +7,16 @@
     color: #bababa;
     font-size: .8em;
 }
+
+.container {
+  position: relative;
+}
+
+.text-block {
+  position: absolute;
+  right: 20px;
+  background-color:#FFA500;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
