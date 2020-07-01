@@ -1,5 +1,6 @@
 const obj = {
   data: {
+    baseURL: 'https://course-ec-api.hexschool.io/api/',
     profile: {
       uuid: 'd191d308-9c29-486a-ab7d-35afd78c1b41',
     },
@@ -7,11 +8,27 @@ const obj = {
   },
   getProducts() {
     const vm = this;
-    const url = `https://course-ec-api.hexschool.io/api/${this.data.profile.uuid}/ec/products`;
+    const getProductsURL = `${this.data.baseURL}${this.data.profile.uuid}/ec/products`;
 
-    axios.get(url)
+    axios.get(getProductsURL)
       .then(function (response) {
         vm.data.products = response.data.data;
+        vm.data.products.forEach((item, index) => {
+          vm.getProduct(item.id, index)
+        })
+
+      })
+  },
+  getProduct(productID, index) {
+    const vm = this;
+    const getProductURL = `${this.data.baseURL}${this.data.profile.uuid}/ec/product/${productID}`;
+
+    axios.get(getProductURL)
+      .then(function (response) {
+        vm.data.products[index] = {
+          ...vm.data.products[index],
+          "description": response.data.data.description
+        }
         vm.render();
       })
   },
@@ -20,13 +37,15 @@ const obj = {
     const products = this.data.products;
     let str = '';
     products.forEach(item => {
+      console.log(item)
       str += `
       <div class="card">
         <img src="${item.imageUrl[0]}" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">${item.title}</h5>
           <p class="card-text">${item.content}</p>
-          <span class="badge badge-primary">特價: ${item.price}</span>
+          <p class="card-text">${item.description}</p>
+          <span class="badge badge-primary mr-3">特價: ${item.price} </span><span class="original-price">原價: ${item.origin_price}</span>
         </div>
       </div>`;
     });

@@ -1,3 +1,9 @@
 .card:hover {
   background-color: #F8F8FF;
 }
+
+.original-price {
+    text-decoration: line-through;
+    color: #bababa;
+    font-size: .8em;
+}
