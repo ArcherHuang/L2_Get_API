@@ -56,8 +56,18 @@ const obj = {
           <h5 class="card-title">${item.title}</h5>
           <p class="card-text">${item.content}</p>
           <p class="card-text">${item.description}</p>
+          `
+      if (item.price < item.origin_price) {
+        str += `
           <span class="badge badge-primary mr-3">特價: ${item.price}</span>
           <span class="original-price">原價: ${item.origin_price}</span>
+          `
+      } else {
+        str += `
+          <span class="badge badge-info mr-3">售價: ${item.price}</span>
+          `
+      }
+      str += `
           <a href="#" class="btn btn-outline-success mt-4 add-cart" style="display: block;margin:10px auto;">加入購物車</a>
         </div>
       </div>`;
