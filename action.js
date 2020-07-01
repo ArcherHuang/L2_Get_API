@@ -40,9 +40,11 @@ const obj = {
       console.log(item)
       str += `
       <div class="card">
-        <img src="${item.imageUrl[0]}" class="card-img-top">
-        <div class="text-block">
-          <span>特價中</span>
+        <div class="box">
+          <img src="${item.imageUrl[0]}" class="card-img-top">
+          <div class="text-block">
+            <span>特價中</span>
+          </div>
         </div>
         <div class="card-body">
           <h5 class="card-title">${item.title}</h5>

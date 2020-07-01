@@ -12,11 +12,18 @@
   position: relative;
 }
 
+.box {
+    position: relative;
+    display: inline-block;
+}
+
 .text-block {
-  position: absolute;
-  right: 20px;
-  background-color:#FFA500;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
+    position: absolute;
+    z-index: 999;
+    right: 0px;
+    top: 0px;
+    background-color:#FFA500;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
