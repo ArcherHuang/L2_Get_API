@@ -42,9 +42,15 @@ const obj = {
       <div class="card">
         <div class="box">
           <img src="${item.imageUrl[0]}" class="card-img-top">
-          <div class="text-block">
-            <span>特價中</span>
-          </div>
+          `
+      if (item.price < item.origin_price) {
+        str += `
+              <div class="text-block">
+                <span>特價中</span>
+              </div>
+              `
+      }
+      str += `
         </div>
         <div class="card-body">
           <h5 class="card-title">${item.title}</h5>
